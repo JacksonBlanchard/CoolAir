@@ -7,10 +7,17 @@ public class Inventory : MonoBehaviour
 {
     private List<Item> itemList;
     public GameObject itemSlotPrefab;
+    public bool interactable;
 
-    public Inventory()
+    void Start()
     {
         itemList = new List<Item>();
+        interactable = true;
+    }
+
+    void Update()
+    {
+        
     }
 
     public void AddItem(Item item)
@@ -19,9 +26,7 @@ public class Inventory : MonoBehaviour
         itemList.Add(item);
         // instantiate the itemSlotPrefab UI Panel and make it a child of this object
         GameObject itemSlot = Instantiate(itemSlotPrefab, transform);
-        // make the item a child of the panel so that it is visible
-        item.gameObject.transform.parent = itemSlot.transform;
-        item.gameObject.transform.position = Vector3.zero;
+        itemSlot.GetComponent<ItemSlot>().SetItem(item);
 
         Debug.Log("Added " + item.name + " to inventory (size " + itemList.Count + ")");
     }
@@ -36,5 +41,11 @@ public class Inventory : MonoBehaviour
             }
         }
         return false;
+    }
+
+    public void ToggleInteraction()
+    {
+        interactable = !interactable;
+        //this.enabled = false;
     }
 }

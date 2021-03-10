@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public GameObject interactable;
+    private GameObject interactable;
+    [SerializeField]
+    private Inventory inventory;
     float yawInput;
     float pitchInput;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ExamineObject(interactable);
+        if(interactable != null)
+        {
+            ExamineObject(interactable);
+        }
+
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            interactable.GetComponent<Renderer>().enabled = false;
+            interactable = null;
+            inventory.ToggleInteraction();
+        }
     }
 
     public void ExamineObject(GameObject obj)
@@ -32,5 +43,27 @@ public class PlayerController : MonoBehaviour
 
         else
             obj.transform.Rotate(transform.up, -yawInput, Space.World);
+    }
+
+    public void ClickedItem(Item item)
+    {
+        item.gameObject.GetComponent<Renderer>().enabled = true;
+
+        // intermittent 2D items
+        if(item.intermittent)
+        {
+
+        }
+        // 3D items to inspect
+        else
+        {
+            interactable = item.gameObject;
+        }
+    }
+
+    public void AcquireItem(GameObject itemPrefab)
+    {
+        GameObject item = Instantiate(itemPrefab, transform);
+        inventory.AddItem(item.GetComponent<Item>());
     }
 }
