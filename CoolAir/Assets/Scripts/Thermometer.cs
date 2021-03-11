@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Thermometer : MonoBehaviour
 {
-    private Text thermometerText;
+    private Text thermometerText;   // The display text for the thermometer
     [SerializeField]
-    private int temp;
+    private int temp;               // The current temperature
     [SerializeField]
-    private float time;
-    private int count;
+    private float time;             // The timer for waiting until the degree changes
+    private int count;              // Only used if we want specific seconds rather than a specific temp
+    private int seconds = 20;       // The amount of time until the degree go up by one
 
 
     void Start()
@@ -24,9 +26,10 @@ public class Thermometer : MonoBehaviour
 
     void Update()
     {
-        if(count >= 20 && temp >= 71)
+        if(temp >= 71 /*&& count >= 15*/)
         {
             // End the game
+            SceneManager.LoadScene("LoseScene");
 
         }
 
@@ -34,10 +37,10 @@ public class Thermometer : MonoBehaviour
         {
             time += Time.deltaTime;
 
-            if(time >= 15)
+            if(time >= seconds)
             {
                 time = 0;
-                count++;
+                //count++;
                 temp++;
                 thermometerText.text = "" + temp;
 
