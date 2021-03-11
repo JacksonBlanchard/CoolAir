@@ -42,4 +42,9 @@ public class ItemSlot : MonoBehaviour
             player.ClickedItem(item);
         }
     }
+
+    public void OnDestroy()
+    {
+        Destroy(item.gameObject);
+    }
 }
