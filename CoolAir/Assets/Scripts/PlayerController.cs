@@ -66,4 +66,9 @@ public class PlayerController : MonoBehaviour
         GameObject item = Instantiate(itemPrefab, transform);
         inventory.AddItem(item.GetComponent<Item>());
     }
+
+    public void RemoveItem(Item.ItemType itemType)
+    {
+        inventory.RemoveItem(itemType);
+    }
 }

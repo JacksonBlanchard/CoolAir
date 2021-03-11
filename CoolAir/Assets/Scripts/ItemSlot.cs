@@ -29,6 +29,11 @@ public class ItemSlot : MonoBehaviour
         GetComponent<Image>().sprite = item.inventoryImage;
     }
 
+    public Item.ItemType GetItemType()
+    {
+        return item.itemType;
+    }
+
     private void OnMouseDown()
     {
         if(item != null && inventory.interactable)

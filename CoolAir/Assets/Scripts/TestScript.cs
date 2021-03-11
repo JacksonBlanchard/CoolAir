@@ -25,5 +25,9 @@ public class TestScript : MonoBehaviour
         {
             player.AcquireItem(testCapsulePrefab);
         }
+        if(Input.GetKeyDown(KeyCode.H))
+        {
+            player.RemoveItem(Item.ItemType.Wrench);
+        }
     }
 }
