@@ -29,7 +29,7 @@ public class Inventory : MonoBehaviour
         // add item to the List<Item>
         itemSlotList.Add(itemSlot.GetComponent<ItemSlot>());
 
-        Debug.Log("Added " + item.name + " to inventory (size " + itemSlotList.Count + ")");
+        Debug.Log("Added " + item.itemType.ToString() + " to inventory (size " + itemSlotList.Count + ")");
     }
 
     public void RemoveItem(Item.ItemType itemType)

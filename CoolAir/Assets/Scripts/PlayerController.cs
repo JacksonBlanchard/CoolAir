@@ -7,13 +7,20 @@ public class PlayerController : MonoBehaviour
     private GameObject interactable;
     [SerializeField]
     private Inventory inventory;
+    private Item.ItemType lookingForItem; 
+
     float yawInput;
     float pitchInput;
+
+    public Inventory Inventory { get { return inventory; } }
+    public Item.ItemType LookingForItem { get { return lookingForItem; } }
 
     // Start is called before the first frame update
     void Start()
     {
         //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+
+        lookingForItem = Item.ItemType.Wrench;
     }
 
     // Update is called once per frame
