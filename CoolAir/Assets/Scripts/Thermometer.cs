@@ -14,19 +14,22 @@ public class Thermometer : MonoBehaviour
     private int count;              // Only used if we want specific seconds rather than a specific temp
     private int seconds = 20;       // The amount of time until the degree go up by one
 
+    public Slider thermometer;
 
     void Start()
     {
         time = 0;
         count = 0;
         temp = 56;
-        thermometerText = this.GetComponent<Text>();
-        thermometerText.text = "" + temp;
+        //thermometerText = this.GetComponent<Text>();
+        //thermometerText.text = "" + temp;
+        thermometer.maxValue = 300;
+        thermometer.value = 0;
     }
 
     void Update()
     {
-        if(temp >= 71 /*&& count >= 15*/)
+        if(thermometer.value == 300)
         {
             // End the game
             SceneManager.LoadScene("LoseScene");
@@ -35,16 +38,17 @@ public class Thermometer : MonoBehaviour
 
         else
         {
-            time += Time.deltaTime;
+            time = Time.time;
+            thermometer.value = time;
 
-            if(time >= seconds)
-            {
-                time = 0;
-                //count++;
-                temp++;
-                thermometerText.text = "" + temp;
+            //if (time >= seconds)
+            //{
+            //    time = 0;
+            //    //count++;
+            //    temp++;
+            //    //thermometerText.text = "" + temp;
 
-            }
+            //}
 
         }
 
