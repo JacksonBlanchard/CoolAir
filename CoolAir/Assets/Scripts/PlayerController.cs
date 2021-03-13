@@ -2,11 +2,62 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public abstract class Sequence
+{
+    public int GetCurrentState()
+    {
+        return currentState;
+    }
+
+    public void IncrementState()
+    {
+        currentState++;
+    }
+
+    public int currentState = 0;
+}
+
+public class Sequence1: Sequence
+{
+    int NeedsWrench = 0;
+    int NeedsSoup = 1;
+    int GotSoup = 2;
+    int GotWrench = 3;
+
+}
+
+public class Sequence2: Sequence
+{
+    int NeedsPump = 0;
+    int NeedsVoodooDoll = 1;
+    int NeedsThread = 2;
+    int GotThread = 3;
+    int GotVoodooDoll = 4;
+    int GotPump = 5;
+}
+
+public class Sequence3: Sequence
+{
+    int NeedsAmmonia = 0;
+    int NeedsPrescription = 1;
+    int NeedsPen = 2;
+    int NeedsPaperClip = 3;
+    int GotPaperClip = 4;
+    int GotPen = 5;
+    int GotPrescription = 6;
+    int GotAmmonia = 7;
+
+}
+
+
 public class PlayerController : MonoBehaviour
 {
     private GameObject interactable;
     [SerializeField]
     private Inventory inventory;
+    private Item.ItemType lookingForItem; 
+
     float yawInput;
     float pitchInput;
 
@@ -28,12 +79,26 @@ public class PlayerController : MonoBehaviour
     private Item.ItemType nextItem;
     private int currentItemIndex;
 
+    private int currentSequence;
+    private List<Sequence> sequences = new List<Sequence>();
+
+    private Sequence1 firstSequence;
+    private Sequence2 secondSequence;
+    private Sequence3 thirdSequence;
+
+    public Inventory Inventory { get { return inventory; } }
+    public Item.ItemType LookingForItem { get { return lookingForItem; } }
 
     // Start is called before the first frame update
     void Start()
     {
         //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         currentItemIndex = 0;
+        currentSequence = 0;
+        lookingForItem = Item.ItemType.Wrench;
+        sequences.Add(new Sequence1());
+        sequences.Add(new Sequence2());
+        sequences.Add(new Sequence3());
     }
 
     // Update is called once per frame
@@ -68,6 +133,18 @@ public class PlayerController : MonoBehaviour
             obj.transform.Rotate(transform.up, -yawInput, Space.World);
     }
 
+    void QueryPlayerState()
+    {
+        switch(currentSequence)
+        {
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+        }
+    }
     public void ClickedItem(Item item)
     {
         item.gameObject.GetComponent<Renderer>().enabled = true;
