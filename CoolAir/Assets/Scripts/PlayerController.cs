@@ -56,7 +56,10 @@ public class PlayerController : MonoBehaviour
     private GameObject interactable;
     [SerializeField]
     private Inventory inventory;
-    private Item.ItemType lookingForItem; 
+    private Item.ItemType lookingForItem;
+
+    [System.NonSerialized]
+    public Stack<Item.ItemType> neededItems = new Stack<Item.ItemType>();
 
     float yawInput;
     float pitchInput;
@@ -95,6 +98,7 @@ public class PlayerController : MonoBehaviour
         //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         currentItemIndex = 0;
         currentSequence = 0;
+        neededItems.Push(Item.ItemType.Pump);
         lookingForItem = Item.ItemType.Wrench;
         sequences.Add(new Sequence1());
         sequences.Add(new Sequence2());
@@ -194,5 +198,10 @@ public class PlayerController : MonoBehaviour
 
         }
 
+    }
+
+    public bool HasItem(Item.ItemType itemType)
+    {
+        return (inventory.Contains(itemType)) ;
     }
 }

@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AirConditionerScript : MonoBehaviour
 {
     public Inventory inventory;
-    [SerializeField]
-    private List<Item> acInv;
+    public PlayerController player;
+    private List<Item.ItemType> acInv;
+    [SerializeField] private GameObject speechBubble;
+    private Text dialogueText;
 
     void Start()
     {
-        acInv = new List<Item>();
+        acInv = new List<Item.ItemType>();
+        dialogueText = speechBubble.GetComponentInChildren<Text>();
 
     }
 
@@ -23,37 +27,57 @@ public class AirConditionerScript : MonoBehaviour
         }
     }
 
-
     public void CheckForItems()
     {
-        Item item = new Item();
-        if (inventory.Contains(Item.ItemType.Wrench) && (acInv.Count == 0))
+        if ((acInv.Count == 0))
         {
-            AddItem(item, Item.ItemType.Wrench);
+            if(inventory.Contains(Item.ItemType.Wrench))
+                AddItem(Item.ItemType.Wrench);
+
+            else
+            {
+                dialogueText.text = "looks like some of these bolts are lose";
+
+                if(!player.neededItems.Contains(Item.ItemType.Wrench))
+                    player.neededItems.Push(Item.ItemType.Wrench);
+            }
 
         }
 
-        if (inventory.Contains(Item.ItemType.Pump) && (acInv.Count == 1))
+        if ((acInv.Count == 1))
         {
-            AddItem(item, Item.ItemType.Pump);
+            if (inventory.Contains(Item.ItemType.Pump))
+                AddItem(Item.ItemType.Pump);
+
+            else
+            {
+                dialogueText.text = "The screws are fine but it is not pumping anymore";
+
+                if (!player.neededItems.Contains(Item.ItemType.Pump))
+                    player.neededItems.Push(Item.ItemType.Pump);
+            }
 
         }
 
-        if (inventory.Contains(Item.ItemType.Ammonia) && (acInv.Count == 2))
+        if ((acInv.Count == 2))
         {
-            AddItem(item, Item.ItemType.Ammonia);
+            if (inventory.Contains(Item.ItemType.Ammonia))
+                AddItem(Item.ItemType.Ammonia);
 
+            else
+            {
+                dialogueText.text = "Now I just need to find some ammonia";
+
+                if (!player.neededItems.Contains(Item.ItemType.Ammonia))
+                    player.neededItems.Push(Item.ItemType.Ammonia);
+            }
         }
 
     }
 
-    public void AddItem(Item item, Item.ItemType type)
+    public void AddItem(Item.ItemType itemType)
     {
-        item.itemType = type;
-        acInv.Add(item);
-        inventory.RemoveItem(type);
-
+        acInv.Add(itemType);
+        player.RemoveItem(itemType);
     }
-
-
 }

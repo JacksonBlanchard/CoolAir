@@ -126,20 +126,20 @@ public class DialogueManager : MonoBehaviour
 
         // If the player does not have the item they are looking for
         // the character should say their line that asks the player for an item
-        if (!player.Inventory.Contains(lookingFor))
+        if (!player.HasItem(lookingFor))
         {
             lineNumber = lookingForLineNum;
         }
 
         // If the player has the item that the character wants in return for what the player's looking for
         // the character should say the line that asks for that item and gives the player the item they're looking for
-        if (player.Inventory.Contains(needed))
+        if (player.HasItem(needed))
         {
             lineNumber = haveNeededLineNum;
         }
         // If the player already has the item that they are looking for
         // the character should say idle dialogue because the player should go interact with the air conditioning
-        else if (player.Inventory.Contains(lookingFor))
+        else if (player.HasItem(lookingFor))
         {
             lineNumber = 0;
         }

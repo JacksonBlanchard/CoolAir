@@ -17,17 +17,6 @@ public class TestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            player.AcquireItem(testCubePrefab);
-        }
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            player.AcquireItem(testCapsulePrefab);
-        }
-        if(Input.GetKeyDown(KeyCode.H))
-        {
-            player.RemoveItem(Item.ItemType.Wrench);
-        }
+
     }
 }
