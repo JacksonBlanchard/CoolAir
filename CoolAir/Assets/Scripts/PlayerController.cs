@@ -10,10 +10,30 @@ public class PlayerController : MonoBehaviour
     float yawInput;
     float pitchInput;
 
+    private Item.ItemType[] itemArray = { 
+        Item.ItemType.Soup, 
+        Item.ItemType.Wrench,
+        Item.ItemType.Thread,
+        Item.ItemType.VoodooDoll,
+        Item.ItemType.Pump,
+        Item.ItemType.RedPaperClip,
+        Item.ItemType.Pen,
+        Item.ItemType.Prescription,
+        Item.ItemType.Ammonia   
+    };
+
+    [SerializeField]
+    private Item.ItemType currentItem;
+    [SerializeField]
+    private Item.ItemType nextItem;
+    private int currentItemIndex;
+
+
     // Start is called before the first frame update
     void Start()
     {
         //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+        currentItemIndex = 0;
     }
 
     // Update is called once per frame
@@ -30,6 +50,9 @@ public class PlayerController : MonoBehaviour
             interactable = null;
             inventory.ToggleInteraction();
         }
+
+        CheckItems();
+
     }
 
     public void ExamineObject(GameObject obj)
@@ -70,5 +93,29 @@ public class PlayerController : MonoBehaviour
     public void RemoveItem(Item.ItemType itemType)
     {
         inventory.RemoveItem(itemType);
+    }
+
+    public void CheckItems()
+    {
+        for(int i = 0; i < itemArray.Length; i++)
+        {
+            if(inventory.Contains(itemArray[i]))
+            {
+                currentItem = itemArray[i];
+                currentItemIndex = i;
+                if(i < itemArray.Length)
+                {
+                    nextItem = itemArray[i + 1];
+
+                }
+                else
+                {
+                    nextItem = itemArray[0];
+                }
+
+            }
+
+        }
+
     }
 }
