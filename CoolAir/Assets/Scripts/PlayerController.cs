@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public abstract class Sequence
 {
     public int GetCurrentState()
@@ -24,7 +23,6 @@ public class Sequence1: Sequence
     int NeedsSoup = 1;
     int GotSoup = 2;
     int GotWrench = 3;
-
 }
 
 public class Sequence2: Sequence
@@ -47,15 +45,12 @@ public class Sequence3: Sequence
     int GotPen = 5;
     int GotPrescription = 6;
     int GotAmmonia = 7;
-
 }
-
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Inventory inventory;
     private GameObject interactable;
-    [SerializeField]
-    private Inventory inventory;
     private Item.ItemType lookingForItem; 
 
     float yawInput;
@@ -74,13 +69,11 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
         currentSequence = 0;
         lookingForItem = Item.ItemType.Wrench;
         sequences.Add(new Sequence1());
         sequences.Add(new Sequence2());
         sequences.Add(new Sequence3());
-
     }
 
     // Update is called once per frame
@@ -107,7 +100,6 @@ public class PlayerController : MonoBehaviour
 
         if (Mathf.Abs(pitchInput) > Mathf.Abs(yawInput))
             obj.transform.Rotate(transform.right, pitchInput, Space.World);
-
         else
             obj.transform.Rotate(transform.up, -yawInput, Space.World);
     }
@@ -124,6 +116,7 @@ public class PlayerController : MonoBehaviour
                 break;
         }
     }
+
     public void ClickedItem(Item item)
     {
         item.gameObject.GetComponent<Renderer>().enabled = true;
