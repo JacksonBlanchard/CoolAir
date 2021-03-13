@@ -14,9 +14,11 @@ public class DialogueManager : MonoBehaviour
     [SerializeField] private PlayerController player;
     #endregion
 
+
     #region Methods
     void Start()
     {
+        
         // Read in all the dialogue from the files
         ReadAllDialogue();
 
