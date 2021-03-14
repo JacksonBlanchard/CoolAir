@@ -174,6 +174,7 @@ public class PlayerController : MonoBehaviour
     public void RemoveItem(Item.ItemType itemType)
     {
         inventory.RemoveItem(itemType);
+        neededItems.Pop();
     }
 
     public void CheckItems()

@@ -15,7 +15,6 @@ public class AirConditionerScript : MonoBehaviour
     {
         acInv = new List<Item.ItemType>();
         dialogueText = speechBubble.GetComponentInChildren<Text>();
-
     }
 
     private void Update()
@@ -29,50 +28,47 @@ public class AirConditionerScript : MonoBehaviour
 
     public void CheckForItems()
     {
-        if ((acInv.Count == 0))
+        if (acInv.Count == 0)
         {
             if(inventory.Contains(Item.ItemType.Wrench))
                 AddItem(Item.ItemType.Wrench);
 
             else
             {
-                dialogueText.text = "looks like some of these bolts are lose";
+                dialogueText.text = "It looks like some of these bolts are lose...";
 
                 if(!player.neededItems.Contains(Item.ItemType.Wrench))
                     player.neededItems.Push(Item.ItemType.Wrench);
             }
-
         }
 
-        if ((acInv.Count == 1))
+        if (acInv.Count == 1)
         {
             if (inventory.Contains(Item.ItemType.Pump))
                 AddItem(Item.ItemType.Pump);
 
             else
             {
-                dialogueText.text = "The screws are fine but it is not pumping anymore";
+                dialogueText.text = "The screws are fine but it is not pumping anymore...";
 
                 if (!player.neededItems.Contains(Item.ItemType.Pump))
                     player.neededItems.Push(Item.ItemType.Pump);
             }
-
         }
 
-        if ((acInv.Count == 2))
+        if (acInv.Count == 2)
         {
             if (inventory.Contains(Item.ItemType.Ammonia))
                 AddItem(Item.ItemType.Ammonia);
 
             else
             {
-                dialogueText.text = "Now I just need to find some ammonia";
+                dialogueText.text = "Now I just need to find some ammonia...";
 
                 if (!player.neededItems.Contains(Item.ItemType.Ammonia))
                     player.neededItems.Push(Item.ItemType.Ammonia);
             }
         }
-
     }
 
     public void AddItem(Item.ItemType itemType)
