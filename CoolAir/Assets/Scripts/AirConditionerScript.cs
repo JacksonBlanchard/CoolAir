@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class AirConditionerScript : MonoBehaviour
 {
+	public Sprite OkayImage;
+	public Sprite FixedImage;
+	public Image BackgroundImage;
+
     private List<Item.ItemType> acInv;
     [SerializeField] private GameObject speechBubble;
     private Text dialogueText;
@@ -28,34 +32,42 @@ public class AirConditionerScript : MonoBehaviour
     {
         if (acInv.Count == 0)
         {
-            if(Inventory.Instance.Contains(Item.ItemType.Wrench))
-                AddItem(Item.ItemType.Wrench);
+			if (Inventory.Instance.Contains(Item.ItemType.Wrench))
+			{
+				AddItem(Item.ItemType.Wrench);
+				BackgroundImage.sprite = OkayImage;
+			}
 
-            else
-            {
-                dialogueText.text = "It looks like some of these bolts are lose...";
+			else
+			{
+				dialogueText.text = "It looks like some of these bolts are lose...";
 
-                if(!PlayerController.Instance.neededItems.Contains(Item.ItemType.Wrench))
+				if (!PlayerController.Instance.neededItems.Contains(Item.ItemType.Wrench))
 					PlayerController.Instance.neededItems.Push(Item.ItemType.Wrench);
-            }
+			}
         }
 
         if (acInv.Count == 1)
         {
-            if (Inventory.Instance.Contains(Item.ItemType.Pump))
-                AddItem(Item.ItemType.Pump);
 
-            else
-            {
-                dialogueText.text = "The screws are fine but it is not pumping anymore...";
+			if (Inventory.Instance.Contains(Item.ItemType.Pump))
+			{
+				AddItem(Item.ItemType.Pump);
+				BackgroundImage.sprite = FixedImage;
+			}
 
-                if (!PlayerController.Instance.neededItems.Contains(Item.ItemType.Pump))
+			else
+			{
+				dialogueText.text = "The screws are fine but it is not pumping anymore...";
+
+				if (!PlayerController.Instance.neededItems.Contains(Item.ItemType.Pump))
 					PlayerController.Instance.neededItems.Push(Item.ItemType.Pump);
-            }
+			}
         }
 
         if (acInv.Count == 2)
         {
+			
             if (Inventory.Instance.Contains(Item.ItemType.Ammonia))
                 AddItem(Item.ItemType.Ammonia);
 
