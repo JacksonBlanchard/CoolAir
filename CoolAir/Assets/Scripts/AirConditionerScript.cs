@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class AirConditionerScript : MonoBehaviour
 {
@@ -24,7 +26,8 @@ public class AirConditionerScript : MonoBehaviour
         if(acInv.Count >= 3)
         {
             // Win Condition
-            Debug.Log("You Won!!");
+            SceneManager.LoadScene("WinScene");
+            //Debug.Log("You Won!!");
         }
     }
 
