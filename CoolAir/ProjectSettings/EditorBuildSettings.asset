@@ -11,8 +11,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoseScene.unity
     guid: 6988854362e852f48bf9ea90a82ab2be
-  - enabled: 1
-    path: Assets/Scenes/SequenceTest.unity
+  - enabled: 0
+    path: Assets/Scenes/TestScenes/SequenceTest.unity
     guid: b2c5eb47dd536a541b786e86c59391e0
   - enabled: 1
     path: Assets/Scenes/DeanRoom.unity
@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MechanicRoom.unity
     guid: 6d47e37753874b64791ebd171c39469c
+  - enabled: 1
+    path: Assets/Scenes/PlumberRoom.unity
+    guid: 8061ed21d7e644946b44ccf984ea7961
   m_configObjects: {}
