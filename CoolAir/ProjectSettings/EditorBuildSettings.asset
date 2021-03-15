@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DoctorRoom.unity
     guid: a96d91b88ac2e9c48b405a26acec5cba
+  - enabled: 1
+    path: Assets/Scenes/MechanicRoom.unity
+    guid: 6d47e37753874b64791ebd171c39469c
   m_configObjects: {}
