@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SequenceTest.unity
     guid: b2c5eb47dd536a541b786e86c59391e0
+  - enabled: 1
+    path: Assets/Scenes/DeanRoom.unity
+    guid: 0874e816610da0040a746da2b6e7fa88
   m_configObjects: {}

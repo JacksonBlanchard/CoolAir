@@ -827,6 +827,7 @@ GameObject:
   - component: {fileID: 772257299}
   - component: {fileID: 772257298}
   - component: {fileID: 772257297}
+  - component: {fileID: 772257300}
   m_Layer: 5
   m_Name: Back To Hall
   m_TagString: Untagged
@@ -896,7 +897,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 772257298}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 772257300}
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MainScene
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &772257298
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -934,6 +946,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 772257295}
   m_CullTransparentMesh: 0
+--- !u!114 &772257300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 772257295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44503802f82a416468e4738906f1b2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,7 +1302,7 @@ PrefabInstance:
     - target: {fileID: 6263414411047696605, guid: e2031d427b219c1478f380a0e58cfeb0,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -210.3559
+      value: -210.35591
       objectReference: {fileID: 0}
     - target: {fileID: 6263414411047696605, guid: e2031d427b219c1478f380a0e58cfeb0,
         type: 3}
