@@ -11,10 +11,9 @@ GameObject:
   - component: {fileID: 1043470582472684971}
   - component: {fileID: 6241187240398568371}
   - component: {fileID: 1095468513130735983}
-  - component: {fileID: 4386285424548771537}
   - component: {fileID: 3856872604334152188}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Thread
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8597091291355716854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2165405, y: 0, z: 88.91777}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,19 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4386285424548771537
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8597091291355716854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3856872604334152188
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,5 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 4
-  inventoryImage: {fileID: 21300000, guid: 55ea68b3defa0474bbec91c127d6b589, type: 3}
-  intermittent: 0
+  inventoryImage: {fileID: 21300000, guid: 8743b6a7e3bfe4548ab22b0ed1844265, type: 3}
+  intermittent: 1
