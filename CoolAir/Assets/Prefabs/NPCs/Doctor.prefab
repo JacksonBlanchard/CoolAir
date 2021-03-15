@@ -339,9 +339,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   characterName: 0
   dialogueManager: {fileID: 0}
-  player: {fileID: 0}
   speechBubble: {fileID: 4044837055387081236}
   threadPrefab: {fileID: 8597091291355716854, guid: c0214a73a54001148ab7d3fb56b840a2,
     type: 3}
-  prescriptionPrefab: {fileID: 1781605067203668051, guid: 5416c6f1fbfd66d48847ab815771a44c,
+  prescriptionPrefab: {fileID: 5027370121764356265, guid: 5416c6f1fbfd66d48847ab815771a44c,
     type: 3}
