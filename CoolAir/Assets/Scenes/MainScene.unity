@@ -583,10 +583,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Mechanic
 --- !u!222 &469882848
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1848,6 +1848,7 @@ GameObject:
   - component: {fileID: 1656779150}
   - component: {fileID: 1656779149}
   - component: {fileID: 1656779148}
+  - component: {fileID: 1656779151}
   m_Layer: 5
   m_Name: Door5
   m_TagString: Untagged
@@ -1917,7 +1918,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1656779149}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1656779151}
+        m_MethodName: SwitchScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: MechanicRoom
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1656779149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1955,6 +1967,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656779146}
   m_CullTransparentMesh: 0
+--- !u!114 &1656779151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656779146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44503802f82a416468e4738906f1b2b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1761807766
 GameObject:
   m_ObjectHideFlags: 0
