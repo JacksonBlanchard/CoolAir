@@ -115,6 +115,7 @@ public class PlayerController : MonoBehaviour
 		}
 		_instance = this;
 		//inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+		DontDestroyOnLoad(transform.parent.gameObject);
 		currentItemIndex = 0;
         currentSequence = 0;
         neededItems.Push(Item.ItemType.Pump);
