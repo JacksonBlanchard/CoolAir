@@ -1111,6 +1111,23 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6263414411047696606, guid: e2031d427b219c1478f380a0e58cfeb0,
+        type: 3}
+      propertyPath: OkayImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 594846045f7169247b7f6d9089b31483,
+        type: 3}
+    - target: {fileID: 6263414411047696606, guid: e2031d427b219c1478f380a0e58cfeb0,
+        type: 3}
+      propertyPath: FixedImage
+      value: 
+      objectReference: {fileID: 21300000, guid: 84e1733649b193446b2f0fe6dcb43582,
+        type: 3}
+    - target: {fileID: 6263414411047696606, guid: e2031d427b219c1478f380a0e58cfeb0,
+        type: 3}
+      propertyPath: BackgroundImage
+      value: 
+      objectReference: {fileID: 1898339695}
     - target: {fileID: 6263414411518378089, guid: e2031d427b219c1478f380a0e58cfeb0,
         type: 3}
       propertyPath: m_SizeDelta.x
