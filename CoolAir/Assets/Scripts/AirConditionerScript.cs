@@ -11,19 +11,27 @@ public class AirConditionerScript : MonoBehaviour
 	public Sprite FixedImage;
 	public Image BackgroundImage;
 
-    private List<Item.ItemType> acInv;
+    private int ACstage;
     [SerializeField] private GameObject speechBubble;
     private Text dialogueText;
 
     void Start()
     {
-        acInv = new List<Item.ItemType>();
-        dialogueText = speechBubble.GetComponentInChildren<Text>();
+		ACstage = PlayerController.Instance.ACStage;
+		if(ACstage == 1)
+		{
+			BackgroundImage.sprite = OkayImage;
+		}else if(ACstage == 2)
+		{
+			BackgroundImage.sprite = FixedImage;
+		}
+		dialogueText = speechBubble.GetComponentInChildren<Text>();
+
     }
 
     private void Update()
     {
-        if(acInv.Count >= 3)
+        if(ACstage >= 3)
         {
             // Win Condition
             SceneManager.LoadScene("WinScene");
@@ -33,7 +41,7 @@ public class AirConditionerScript : MonoBehaviour
 
     public void CheckForItems()
     {
-        if (acInv.Count == 0)
+        if (ACstage == 0)
         {
 			if (Inventory.Instance.Contains(Item.ItemType.Wrench))
 			{
@@ -50,7 +58,7 @@ public class AirConditionerScript : MonoBehaviour
 			}
         }
 
-        if (acInv.Count == 1)
+        if (ACstage == 1)
         {
 
 			if (Inventory.Instance.Contains(Item.ItemType.Pump))
@@ -68,7 +76,7 @@ public class AirConditionerScript : MonoBehaviour
 			}
         }
 
-        if (acInv.Count == 2)
+        if (ACstage == 2)
         {
 			
             if (Inventory.Instance.Contains(Item.ItemType.Ammonia))
@@ -86,7 +94,8 @@ public class AirConditionerScript : MonoBehaviour
 
     public void AddItem(Item.ItemType itemType)
     {
-        acInv.Add(itemType);
+        //acInv.Add(itemType);
 		PlayerController.Instance.RemoveItem(itemType);
+		PlayerController.Instance.ACStage++;
     }
 }

@@ -58,6 +58,9 @@ public class PlayerController : MonoBehaviour
     private Inventory inventory;
     private Item.ItemType lookingForItem;
 
+	[System.NonSerialized]
+	public int ACStage;
+
     [System.NonSerialized]
     public Stack<Item.ItemType> neededItems = new Stack<Item.ItemType>();
 
@@ -123,6 +126,7 @@ public class PlayerController : MonoBehaviour
         sequences.Add(new Sequence1());
         sequences.Add(new Sequence2());
         sequences.Add(new Sequence3());
+		ACStage = 0;
     }
 
     // Update is called once per frame
