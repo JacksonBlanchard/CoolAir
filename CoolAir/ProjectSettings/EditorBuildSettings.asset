@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/OldLadyRoom.unity
     guid: 3fe408676cb7c764fbfcc8ff49a0be1b
+  - enabled: 1
+    path: Assets/Scenes/DoctorRoom.unity
+    guid: a96d91b88ac2e9c48b405a26acec5cba
   m_configObjects: {}
