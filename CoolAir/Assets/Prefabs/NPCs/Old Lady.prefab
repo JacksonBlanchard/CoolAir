@@ -340,8 +340,7 @@ MonoBehaviour:
   characterName: 2
   dialogueManager: {fileID: 0}
   speechBubble: {fileID: 6575714994223568240}
-  soupPrefab: {fileID: 7802884683968087418, guid: 6d4622d5b35783b48bdfef5e7aa66491,
+  soupPrefab: {fileID: 3592894974864097125, guid: fb1e04b325d8d52408abcff04440d6f9,
     type: 3}
   voodooDollPrefab: {fileID: 304080433513937368, guid: 3fbe2889db47ee5459ae1c40081c7dae,
     type: 3}
-
