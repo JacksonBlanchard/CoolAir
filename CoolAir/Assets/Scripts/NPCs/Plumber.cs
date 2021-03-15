@@ -33,7 +33,6 @@ public class Plumber : Character
             else
             {
 				PlayerController.Instance.RemoveItem(Item.ItemType.VoodooDoll);
-				PlayerController.Instance.neededItems.Pop();
 				PlayerController.Instance.AcquireItem(pump);
             }
         }
