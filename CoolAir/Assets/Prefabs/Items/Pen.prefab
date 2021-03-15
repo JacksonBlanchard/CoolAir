@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2329260746098387210}
   - component: {fileID: 3102133344957591890}
   - component: {fileID: 5904218407992438930}
-  - component: {fileID: 8689855555178000950}
   - component: {fileID: 427275782689812352}
   m_Layer: 0
   m_Name: Pen
@@ -28,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364379084399143333}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.33917978, y: 0.61571515, z: 219.38435}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,20 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &8689855555178000950
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1364379084399143333}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &427275782689812352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,5 +93,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemType: 7
-  inventoryImage: {fileID: 0}
+  inventoryImage: {fileID: 21300000, guid: ad75964935670a546be7d554bd14b13b, type: 3}
   intermittent: 1
