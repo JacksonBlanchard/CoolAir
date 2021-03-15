@@ -24,36 +24,36 @@ public class Mechanic : Character
     public override void UpdatePlayerState()
     {
         // check what item the player currently needs
-        Item.ItemType neededItem = player.neededItems.Peek();
+        Item.ItemType neededItem = PlayerController.Instance.neededItems.Peek();
 
         // if the player needs the wrench
         if(neededItem == Item.ItemType.Wrench)
         {
             // if the player doesn't have soup, add it to the stack of needed items
-            if (!player.HasItem(Item.ItemType.Soup))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.Soup))
             {
-                player.neededItems.Push(Item.ItemType.Soup);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.Soup);
             }
             // otherwise trade the soup for the wrench
             else
             {
-                player.RemoveItem(Item.ItemType.Soup);
-                player.AcquireItem(wrenchPrefab);
+				PlayerController.Instance.RemoveItem(Item.ItemType.Soup);
+				PlayerController.Instance.AcquireItem(wrenchPrefab);
             }
         }
         // if the player needs a pen
         else if(neededItem == Item.ItemType.Pen)
         {
             // if the player doesn't have a paper clip, add it to the stack of needed items
-            if (!player.HasItem(Item.ItemType.RedPaperClip))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.RedPaperClip))
             {
-                player.neededItems.Push(Item.ItemType.RedPaperClip);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.RedPaperClip);
             }
             // otherwise trade the paper clip for the pen
             else
             {
-                player.RemoveItem(Item.ItemType.RedPaperClip);
-                player.AcquireItem(penPrefab);
+				PlayerController.Instance.RemoveItem(Item.ItemType.RedPaperClip);
+				PlayerController.Instance.AcquireItem(penPrefab);
             }
         }
     }

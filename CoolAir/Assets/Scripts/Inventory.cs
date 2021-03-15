@@ -9,8 +9,28 @@ public class Inventory : MonoBehaviour
     public GameObject itemSlotPrefab;
     public bool interactable;
 
+	private static Inventory _instance;
+
+	public static Inventory Instance
+	{
+		get
+		{
+			//normaly you would instantiate a new instance if one did not exist
+			//but since this script requires an itemSlotPrefab to be set by the
+			//the inspector im skiping that step
+			return _instance;
+		}
+	}
+
     void Start()
     {
+		if(_instance != null && _instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
+		_instance = this;
+		DontDestroyOnLoad(gameObject);
         itemSlotList = new List<ItemSlot>();
         interactable = true;
     }

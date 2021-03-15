@@ -89,14 +89,33 @@ public class PlayerController : MonoBehaviour
     private Sequence2 secondSequence;
     private Sequence3 thirdSequence;
 
+	private static PlayerController _instance;
+
+	public static PlayerController Instance
+	{
+		get
+		{
+			//normaly you would instantiate a new instance if one did not exist
+			//but since this requires inventory, and their is no way to tell which
+			//will instantiate first im just gonna skip that step
+			return _instance;
+		}
+	}
+
     public Inventory Inventory { get { return inventory; } }
     public Item.ItemType LookingForItem { get { return lookingForItem; } }
 
     // Start is called before the first frame update
     void Start()
     {
-        //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
-        currentItemIndex = 0;
+		if (_instance != null && _instance != this)
+		{
+			Destroy(gameObject);
+			return;
+		}
+		_instance = this;
+		//inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
+		currentItemIndex = 0;
         currentSequence = 0;
         neededItems.Push(Item.ItemType.Pump);
         lookingForItem = Item.ItemType.Wrench;

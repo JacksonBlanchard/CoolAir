@@ -22,19 +22,19 @@ public class Plumber : Character
 
     public override void UpdatePlayerState()
     {
-        Item.ItemType neededItem = player.neededItems.Peek();
+        Item.ItemType neededItem = PlayerController.Instance.neededItems.Peek();
         if (neededItem == Item.ItemType.Pump)
         {
-            if (!player.HasItem(Item.ItemType.VoodooDoll))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.VoodooDoll))
             {
-                player.neededItems.Push(Item.ItemType.VoodooDoll);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.VoodooDoll);
             }
 
             else
             {
-                player.RemoveItem(Item.ItemType.VoodooDoll);
-                player.neededItems.Pop();
-                player.AcquireItem(pump);
+				PlayerController.Instance.RemoveItem(Item.ItemType.VoodooDoll);
+				PlayerController.Instance.neededItems.Pop();
+				PlayerController.Instance.AcquireItem(pump);
             }
         }
     }

@@ -23,27 +23,27 @@ public class Doctor : Character
     public override void UpdatePlayerState()
     {
         // check what item the player currently needs
-        Item.ItemType neededItem = player.neededItems.Peek();
+        Item.ItemType neededItem = PlayerController.Instance.neededItems.Peek();
 
         // give the player thread if they need it
         if (neededItem == Item.ItemType.Thread)
         {
-            player.neededItems.Pop();
-            player.AcquireItem(threadPrefab);
+			PlayerController.Instance.neededItems.Pop();
+			PlayerController.Instance.AcquireItem(threadPrefab);
         }
         // if the player needs the prescription
         else if(neededItem == Item.ItemType.Prescription)
         {
             // if the player doesn't have a pen, add it to the stack of needed items
-            if (!player.HasItem(Item.ItemType.Pen))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.Pen))
             {
-                player.neededItems.Push(Item.ItemType.Pen);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.Pen);
             }
             // otherwise trade the pen for the prescription
             else
             {
-                player.RemoveItem(Item.ItemType.Pen);
-                player.AcquireItem(prescriptionPrefab);
+				PlayerController.Instance.RemoveItem(Item.ItemType.Pen);
+				PlayerController.Instance.AcquireItem(prescriptionPrefab);
             }
         }
     }

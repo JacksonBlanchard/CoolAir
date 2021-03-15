@@ -22,21 +22,21 @@ public class ViceDeanLaybourne : Character
     public override void UpdatePlayerState()
     {
         // check what item the player currently needs
-        Item.ItemType neededItem = player.neededItems.Peek();
+        Item.ItemType neededItem = PlayerController.Instance.neededItems.Peek();
 
         // if the player needs ammonia
         if(neededItem == Item.ItemType.Ammonia)
         {
             // if the player doesn't have the prescription, add it to the stack of needed items
-            if (!player.HasItem(Item.ItemType.Prescription))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.Prescription))
             {
-                player.neededItems.Push(Item.ItemType.Prescription);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.Prescription);
             }
             // otherwise trade the prescription for the ammonia
             else
             {
-                player.RemoveItem(Item.ItemType.Prescription);
-                player.AcquireItem(ammoniaPrefab);
+				PlayerController.Instance.RemoveItem(Item.ItemType.Prescription);
+                PlayerController.Instance.AcquireItem(ammoniaPrefab);
             }
         }
     }

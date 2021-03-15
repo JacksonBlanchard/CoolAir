@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class RedPaperClip : MonoBehaviour
 {
     public GameObject paperClipPrefab;
-    public PlayerController player;
     [SerializeField] private GameObject speechBubble;
     private Text dialogueText;
 
@@ -16,18 +15,19 @@ public class RedPaperClip : MonoBehaviour
         dialogueText = speechBubble.GetComponentInChildren<Text>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void AddPaperClip()
     {
-        dialogueText.text = "A red paper clip, I'll hold onto this for now.\nI wonder what I could end up trading this for...";
-        player.AcquireItem(paperClipPrefab);
+		if (!PlayerController.Instance.HasItem(Item.ItemType.RedPaperClip))
+		{
+			dialogueText.text = "A red paper clip, I'll hold onto this for now.\nI wonder what I could end up trading this for...";
+			PlayerController.Instance.AcquireItem(paperClipPrefab);
 
-        // for testing purposes only
-        player.neededItems.Push(Item.ItemType.Ammonia);
+			// for testing purposes only
+			PlayerController.Instance.neededItems.Push(Item.ItemType.Ammonia);
+		}
+		else
+		{
+			dialogueText.text = "What happened to the paper clip?...\nOh right I took it";
+		}
     }
 }

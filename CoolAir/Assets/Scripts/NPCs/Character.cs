@@ -18,7 +18,6 @@ public class Character : MonoBehaviour
 {
     [SerializeField] protected CharacterName characterName;
     [SerializeField] protected DialogueManager dialogueManager;
-    [SerializeField] protected PlayerController player;
     [SerializeField] protected GameObject speechBubble;
     protected Text dialogueText; 
 
@@ -42,7 +41,7 @@ public class Character : MonoBehaviour
 
         speechBubble.SetActive(true);
 
-        string dialogue = dialogueManager.RetrieveDialogueLine(characterName, player.neededItems.Peek());
+        string dialogue = dialogueManager.RetrieveDialogueLine(characterName, PlayerController.Instance.neededItems.Peek());
 
         // This line is from https://stackoverflow.com/questions/21319257/insert-newline-character-after-specific-number-of-words
         // It separates the string at every ninth word and adds a return so that things are actually spaced out

@@ -24,27 +24,27 @@ public class OldLady : Character
     public override void UpdatePlayerState()
     {
         // check what item the player currently needs
-        Item.ItemType neededItem = player.neededItems.Peek();
+        Item.ItemType neededItem = PlayerController.Instance.neededItems.Peek();
 
         // give the player soup if they need it
         if(neededItem == Item.ItemType.Soup)
         {
-            player.neededItems.Pop();
-            player.AcquireItem(soupPrefab);
+			PlayerController.Instance.neededItems.Pop();
+			PlayerController.Instance.AcquireItem(soupPrefab);
         }
         // if the player needs the voodoo doll
         else if (neededItem == Item.ItemType.VoodooDoll)
         {
             // if the player doesn't have thread, add it to the stack of needed items
-            if (!player.HasItem(Item.ItemType.Thread))
+            if (!PlayerController.Instance.HasItem(Item.ItemType.Thread))
             {
-                player.neededItems.Push(Item.ItemType.Thread);
+				PlayerController.Instance.neededItems.Push(Item.ItemType.Thread);
             }
             // otherwise trade the thread for the voodoo doll
             else
             {
-                player.RemoveItem(Item.ItemType.Thread);
-                player.AcquireItem(voodooDollPrefab);
+				PlayerController.Instance.RemoveItem(Item.ItemType.Thread);
+				PlayerController.Instance.AcquireItem(voodooDollPrefab);
             }
         }
     }
