@@ -95,5 +95,6 @@ public class AirConditionerScript : MonoBehaviour
         //acInv.Add(itemType);
 		PlayerController.Instance.AddItemToAC(itemType);
 		PlayerController.Instance.ACStage++;
+		ACstage++;
     }
 }
