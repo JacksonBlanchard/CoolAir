@@ -30,7 +30,7 @@ public class Thermometer : MonoBehaviour
 
     void Update()
     {
-        if(thermometer.value == 300)
+        if(thermometer.value >= 300)
         {
             // End the game
             SceneManager.LoadScene("LoseScene");
