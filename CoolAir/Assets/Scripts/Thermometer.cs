@@ -15,30 +15,10 @@ public class Thermometer : MonoBehaviour
     private int seconds = 20;       // The amount of time until the degree go up by one
 
     public Slider thermometer;
-    private static Thermometer _instance;
-
-    public static Thermometer Instance
-    {
-        get
-        {
-            //normaly you would instantiate a new instance if one did not exist
-            //but since this requires inventory, and their is no way to tell which
-            //will instantiate first im just gonna skip that step
-            return _instance;
-        }
-    }
+    
 
     void Start()
     {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        _instance = this;
-
-        //inventory = GameObject.Find("Inventory").GetComponent<Inventory>();
-        DontDestroyOnLoad(transform.parent.parent.gameObject);
         time = 0;
         count = 0;
         temp = 56;
