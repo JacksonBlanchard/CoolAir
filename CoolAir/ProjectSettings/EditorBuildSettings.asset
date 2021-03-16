@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NarratorScene.unity
     guid: a2b6870d06eb65f4491f365989316984
+  - enabled: 1
+    path: Assets/Scenes/WinScene.unity
+    guid: 47d5620b2e089934dae8fb943e923b18
   m_configObjects: {}

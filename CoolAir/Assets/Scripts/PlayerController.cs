@@ -143,7 +143,7 @@ public class PlayerController : MonoBehaviour
             inventory.ToggleInteraction();
         }
 
-        CheckItems();
+        //CheckItems();
 
     }
 

@@ -566,6 +566,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1002568120828981312, guid: bdc3ba487aaf4fc4c8d58bcadd01e91b,
         type: 3}
+      propertyPath: wrenchPrefab
+      value: 
+      objectReference: {fileID: 7916849562703665280, guid: fa7d2dc18b9a3f643b35789a56c7d650,
+        type: 3}
+    - target: {fileID: 1002568120828981312, guid: bdc3ba487aaf4fc4c8d58bcadd01e91b,
+        type: 3}
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 1176462746}

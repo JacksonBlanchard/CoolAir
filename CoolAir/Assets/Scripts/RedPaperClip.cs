@@ -17,13 +17,13 @@ public class RedPaperClip : MonoBehaviour
 
     public void AddPaperClip()
     {
-		if (!PlayerController.Instance.HasItem(Item.ItemType.RedPaperClip))
+		if (PlayerController.Instance.neededItems.Count != 0 && PlayerController.Instance.neededItems.Peek() == Item.ItemType.RedPaperClip)
 		{
 			dialogueText.text = "A red paper clip, I'll hold onto this for now.\nI wonder what I could end up trading this for...";
 			PlayerController.Instance.AcquireItem(paperClipPrefab);
-
+			PlayerController.Instance.neededItems.Pop();
 			// for testing purposes only
-			PlayerController.Instance.neededItems.Push(Item.ItemType.Ammonia);
+			//PlayerController.Instance.neededItems.Push(Item.ItemType.Ammonia);
 		}
 		else
 		{
