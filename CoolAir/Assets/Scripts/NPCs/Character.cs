@@ -58,7 +58,10 @@ public class Character : MonoBehaviour
         
         dialogueText.text = dialogue;
 
-        UpdatePlayerState();
+        if (PlayerController.Instance.neededItems.Count != 0)
+        {
+            UpdatePlayerState();
+        }
     }
 
     public virtual void UpdatePlayerState()
