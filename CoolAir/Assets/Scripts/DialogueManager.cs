@@ -180,7 +180,7 @@ public class DialogueManager : MonoBehaviour
     {
         try
         {
-            StreamReader input = new StreamReader("Assets/Dialogue/" + characterName.ToString() + ".txt");
+            StreamReader input = new StreamReader(Application.dataPath+ "/Resources/" + characterName.ToString() + ".txt");
 
             if (!dialogueLines.ContainsKey(characterName))
             {
