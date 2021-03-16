@@ -57,8 +57,7 @@ public class AirConditionerScript : MonoBehaviour
 					PlayerController.Instance.neededItems.Push(Item.ItemType.Wrench);
 			}
         }
-
-        if (ACstage == 1)
+        else if (ACstage == 1)
         {
 
 			if (Inventory.Instance.Contains(Item.ItemType.Pump))
@@ -75,8 +74,7 @@ public class AirConditionerScript : MonoBehaviour
 					PlayerController.Instance.neededItems.Push(Item.ItemType.Pump);
 			}
         }
-
-        if (ACstage == 2)
+        else if (ACstage == 2)
         {
 			
             if (Inventory.Instance.Contains(Item.ItemType.Ammonia))
@@ -95,7 +93,7 @@ public class AirConditionerScript : MonoBehaviour
     public void AddItem(Item.ItemType itemType)
     {
         //acInv.Add(itemType);
-		PlayerController.Instance.RemoveItem(itemType);
+		PlayerController.Instance.AddItemToAC(itemType);
 		PlayerController.Instance.ACStage++;
     }
 }

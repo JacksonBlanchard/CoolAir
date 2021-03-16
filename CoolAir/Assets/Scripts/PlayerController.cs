@@ -121,7 +121,6 @@ public class PlayerController : MonoBehaviour
 		DontDestroyOnLoad(transform.parent.gameObject);
 		currentItemIndex = 0;
         currentSequence = 0;
-        neededItems.Push(Item.ItemType.Pump);
         lookingForItem = Item.ItemType.Wrench;
         sequences.Add(new Sequence1());
         sequences.Add(new Sequence2());
@@ -199,6 +198,15 @@ public class PlayerController : MonoBehaviour
     {
         inventory.RemoveItem(itemType);
         neededItems.Pop();
+    }
+
+    /// <summary>
+    /// Same as above method but without the pop
+    /// </summary>
+    /// <param name="itemType"></param>
+    public void AddItemToAC(Item.ItemType itemType)
+    {
+        inventory.RemoveItem(itemType); 
     }
 
     public void CheckItems()

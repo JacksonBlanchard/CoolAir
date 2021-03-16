@@ -41,7 +41,16 @@ public class Character : MonoBehaviour
 
         speechBubble.SetActive(true);
 
-        string dialogue = dialogueManager.RetrieveDialogueLine(characterName, PlayerController.Instance.neededItems.Peek());
+        string dialogue; 
+
+        if (PlayerController.Instance.neededItems.Count == 0)
+        {
+            dialogue = dialogueManager.RetrieveIdleDialogue(characterName);
+        }
+        else
+        {
+            dialogue = dialogueManager.RetrieveDialogueLine(characterName, PlayerController.Instance.neededItems.Peek());
+        }
 
         // This line is from https://stackoverflow.com/questions/21319257/insert-newline-character-after-specific-number-of-words
         // It separates the string at every ninth word and adds a return so that things are actually spaced out
